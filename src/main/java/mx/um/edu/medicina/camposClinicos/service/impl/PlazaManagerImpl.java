@@ -18,15 +18,17 @@ import org.springframework.stereotype.Service;
  *
  * @author develop
  */
-@Service
+@Service("plazaManager")
 public class PlazaManagerImpl extends GenericManagerImpl<Plaza, Long> implements PlazaManager {
 
-    private PlazaDao plazaDao;
+    PlazaDao plazaDao;
 
-    @Override
+    public PlazaManagerImpl() {
+    }
+
     @Autowired
-    public void setPlazaDao(final PlazaDao plazaDao) {
-        this.dao = plazaDao;
+    public PlazaManagerImpl(PlazaDao plazaDao) {
+        super(plazaDao);
         this.plazaDao = plazaDao;
     }
 

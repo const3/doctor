@@ -17,13 +17,13 @@ import mx.um.edu.medicina.util.exception.PlazaExistException;
  */
 public interface PlazaManager extends GenericManager<Plaza, Long> {
 
-    /**
-     * Convenience method for testing - allows you to mock the DAO and set it on
-     * an interface.
-     *
-     * @param plazaDao the PlazaDao implementation to use
-     */
-    void setPlazaDao(PlazaDao plazaDao);
+//    /**
+//     * Convenience method for testing - allows you to mock the DAO and set it on
+//     * an interface.
+//     *
+//     * @param plazaDao the PlazaDao implementation to use
+//     */
+//    void PlazaManager(PlazaDao plazaDao);
 
     /**
      * Retrieves a plaza by plazaId. An exception is thrown if plaza not found

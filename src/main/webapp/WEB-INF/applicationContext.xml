@@ -12,9 +12,12 @@
     <context:component-scan base-package="mx.um.edu.medicina"/>
 
     <!-- Add new DAOs here -->
+    <!--<bean id="plazaDao" class="mx.um.edu.medicina.camposClinicos.dao.hibernate.PlazaDaoHibernate"/>-->
 
     <!-- Add new Managers here -->
-    
+    <!--    <bean id="plazaManager" class="mx.um.edu.medicina.camposClinicos.service.impl.PlazaManagerImpl">
+        <constructor-arg ref="plazaDao"/>
+    </bean>-->
     <!-- Configure and Alternative PasswordTokenManager -->
-	<!-- <bean id="passwordTokenManager" class="mx.um.edu.medicina.service.impl.PersistentPasswordTokenManagerImpl" autowire="default" /> -->
+    <!-- <bean id="passwordTokenManager" class="mx.um.edu.medicina.service.impl.PersistentPasswordTokenManagerImpl" autowire="default" /> -->
 </beans>

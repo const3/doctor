@@ -10,11 +10,13 @@ import mx.um.edu.medicina.camposClinicos.dao.PlazaDao;
 import mx.um.edu.medicina.camposClinicos.model.Plaza;
 import mx.um.edu.medicina.dao.hibernate.GenericDaoHibernate;
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author develop
  */
+@Repository("plazaDao")
 public class PlazaDaoHibernate extends GenericDaoHibernate<Plaza, Long> implements PlazaDao {
 
     /**
