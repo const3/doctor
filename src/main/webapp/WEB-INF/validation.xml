@@ -50,5 +50,13 @@
                 <arg key="user.password"/>
             </field>
         </form>
+        <form name="plaza">
+            <field property="nombre" depends="required">
+                <arg key="plaza.nombre"/>
+            </field>
+            <field property="hubicacion" depends="required">
+                <arg key="plaza.hubicacion"/>
+            </field>
+        </form>
     </formset>
 </form-validation>
