@@ -7,7 +7,7 @@
 
 <c:set var="delObject" scope="request"><fmt:message key="plazaList.plaza"/></c:set>
     <script type="text/javascript">var msgDelConfirm =
-            "<fmt:message key="delete.confirm"><fmt:param value="${delObject}"/></fmt:message>";
+                "<fmt:message key="delete.confirm"><fmt:param value="${delObject}"/></fmt:message>";
     </script>
 
     <div class="col-sm-3">
@@ -19,7 +19,7 @@
     <form:form commandName="plaza" method="post" action="plazaform" id="plazaForm"
                cssClass="well" onsubmit="return validatePlaza(this)">
         <form:hidden path="id"/>
-        <spring:bind path="plaza.firstName">
+        <spring:bind path="plaza.nombre">
             <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
             </spring:bind>
             <appfuse:label styleClass="control-label" key="plaza.nombre"/>
@@ -31,8 +31,37 @@
             </spring:bind>
             <appfuse:label styleClass="control-label" key="plaza.hubicacion"/>
             <div class="controls">
-                <form:input path="hubicacion" id="lastName" maxlength="50" cssClass="form-control"/>
+                <form:input path="hubicacion" id="hubicacion" maxlength="50" cssClass="form-control"/>
                 <form:errors path="hubicacion" cssClass="help-block"/>
+            </div>
+        </div>
+        <div class="row">
+            <spring:bind path="plaza.telefono">
+                <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
+                </spring:bind>
+                <appfuse:label styleClass="control-label" key="plaza.telefono"/>
+                <div class="controls">
+                    <form:input path="telefono" id="telefono" maxlength="50" cssClass="form-control"/>
+                    <form:errors path="telefono" cssClass="help-block"/>
+                </div>
+            </div>
+            <spring:bind path="plaza.estado">
+                <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
+                </spring:bind>
+                <appfuse:label styleClass="control-label" key="plaza.estado"/>
+                <div class="controls">
+                    <form:input path="estado" id="estado" maxlength="50"  cssClass="form-control"/>
+                    <form:errors path="estado" cssClass="help-block"/>
+                </div>
+            </div>
+        </div>
+        <spring:bind path="plaza.pais">
+            <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
+            </spring:bind>
+            <appfuse:label styleClass="control-label" key="plaza.pais"/>
+            <div class="controls">
+                <form:input path="pais" id="pais" maxlength="50" cssClass="form-control"/>
+                <form:errors path="pais" cssClass="help-block"/>
             </div>
         </div>
         <div class="form-group form-actions">
@@ -41,7 +70,7 @@
             </button>
             <c:if test="${not empty plaza.id}">
                 <button type="submit" class="btn btn-default" name="delete" onclick="bCancel = true;
-                  return confirmMessage(msgDelConfirm)">
+                        return confirmMessage(msgDelConfirm)">
                     <i class="icon-trash"></i> <fmt:message key="button.delete"/>
                 </button>
             </c:if>
