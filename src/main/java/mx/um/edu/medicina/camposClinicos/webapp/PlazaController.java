@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.um.edu.medicina.webapp.controller;
+package mx.um.edu.medicina.camposClinicos.webapp;
 
 import mx.um.edu.medicina.camposClinicos.service.PlazaManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author develop
  */
 @Controller
-@RequestMapping("/plazas*")
+@RequestMapping("/camposClinicos/plazas*")
 public class PlazaController {
 
     private PlazaManager plazaManager = null;

@@ -55,7 +55,7 @@ public class Plaza extends BaseObject {
         return hubicacion;
     }
 
-    @Column(nullable = false, length = 8)
+    @Column(nullable = false, length = 10)
     @Field
     public String getTelefono() {
         return telefono;

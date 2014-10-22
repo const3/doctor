@@ -19,7 +19,7 @@
                         paramId="id" paramProperty="id" titleKey="plaza.id"/>
         <display:column property="id" media="csv excel xml pdf" titleKey="plaza.id"/>
         <display:column property="nombre" sortable="true" titleKey="plaza.nombre"/>
-        <display:column property="hubicacione" sortable="true" titleKey="plaza.hubicacion"/>
+        <display:column property="hubicacion" sortable="true" titleKey="plaza.hubicacion"/>
         <display:setProperty name="paging.banner.item_name"><fmt:message key="plazaList.plaza"/></display:setProperty>
         <display:setProperty name="paging.banner.items_name"><fmt:message key="plazaList.plaza"/></display:setProperty>
         <display:setProperty name="export.excel.filename"><fmt:message key="plazaList.title"/>.xls</display:setProperty>

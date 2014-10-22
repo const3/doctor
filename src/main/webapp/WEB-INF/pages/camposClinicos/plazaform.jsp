@@ -19,6 +19,7 @@
     <form:form commandName="plaza" method="post" action="plazaform" id="plazaForm"
                cssClass="well" onsubmit="return validatePlaza(this)">
         <form:hidden path="id"/>
+        <form:hidden path="version"/>
         <spring:bind path="plaza.nombre">
             <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
             </spring:bind>
@@ -41,7 +42,7 @@
                 </spring:bind>
                 <appfuse:label styleClass="control-label" key="plaza.telefono"/>
                 <div class="controls">
-                    <form:input path="telefono" id="telefono" maxlength="50" cssClass="form-control"/>
+                    <form:input path="telefono" id="telefono" maxlength="10" cssClass="form-control"/>
                     <form:errors path="telefono" cssClass="help-block"/>
                 </div>
             </div>
