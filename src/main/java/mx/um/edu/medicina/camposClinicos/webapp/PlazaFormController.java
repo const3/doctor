@@ -39,8 +39,8 @@ public class PlazaFormController extends BaseFormController {
     Validator validator;
 
     public PlazaFormController() {
-        setCancelView("redirect:camposClinicos/plazas");
-        setSuccessView("redirect:camposClinicos/plazas");
+        setCancelView("redirect:/camposClinicos/plazas");
+        setSuccessView("redirect:/camposClinicos/plazas");
     }
 
     @ModelAttribute
@@ -87,7 +87,7 @@ public class PlazaFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:plazaform?id=" + plaza.getId();
+                success = "redirect:camposClinicos/plazaform?id=" + plaza.getId();
             }
         }
 

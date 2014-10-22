@@ -7,7 +7,7 @@
     <h2><fmt:message key='plazaList.heading'/></h2>
 
     <div id="actions" class="btn-group">
-        <a class="btn btn-primary" href="<c:url value='/plazaform'/>">
+        <a class="btn btn-primary" href="<c:url value='/camposClinicos/plazaform'/>">
             <i class="icon-plus icon-white"></i> <fmt:message key="button.add"/></a>
         <a class="btn btn-default" href="<c:url value='/mainMenu'/>">
             <i class="icon-ok"></i> <fmt:message key="button.done"/></a>
