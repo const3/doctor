@@ -27,7 +27,7 @@
         <form:input cssClass="form-control" path="apMaterno" id="apMaterno"  maxlength="50" placeholder="lol"/>
         <form:errors path="apMaterno" cssClass="help-block"/>
     </div>
-    <spring:bind path="solicitudInternado.apPaterno">
+    <spring:bind path="solicitudInternado.apPaterno"> 
     <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
     </spring:bind>
         <appfuse:label key="solicitudInternado.apPaterno" styleClass="control-label"/>
