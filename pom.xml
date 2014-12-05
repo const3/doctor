@@ -88,7 +88,7 @@
                         </component>
                     </components>
                     <componentProperties>
-                        <drop>true</drop>
+                        <update>true</update>
                         <jdk5>true</jdk5>
                         <propertyfile>${project.build.outputDirectory}/jdbc.properties</propertyfile>
                         <skip>${skipTests}</skip>
@@ -123,7 +123,7 @@
                     <src>src/test/resources/sample-data.xml</src>
                     <type>${dbunit.operation.type}</type>
                     <schema>${dbunit.schema}</schema>
-                    <skip>${skipTests}</skip>
+                    <skip>true</skip>
                     <transaction>true</transaction>
                 </configuration>
                 <executions>
@@ -135,7 +135,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <!-- Runs before integration tests and jetty:run-war -->
+                        <!--                         Runs before integration tests and jetty:run-war -->
                         <id>test</id>
                         <phase>test</phase>
                         <goals>
@@ -696,6 +696,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>nz.ac.waikato.cms.weka</groupId>
+            <artifactId>weka-dev</artifactId>
+            <version>3.7.6</version>
+        </dependency>
+
     </dependencies>
 
     <reporting>

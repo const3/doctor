@@ -24,7 +24,7 @@
 
     <!-- runs all targets -->
     <target name="run-all-tests" 
-        depends="Login,Logout,PasswordHint,Signup,UserTests,StaticPages,WebServices,DWR,FileUpload"
+        depends="Login,Logout,PasswordHint,Signup,UserTests,StaticPages,WebServices,DWR,FileUpload,SolicitudInternadoTests,SolicitudInternadoTests,SolicitudInternadoTests,SolicitudInternadoTests,SolicitudInternadoTests,SolicitudInternadoTests,SolicitudInternadoTests"
         description="Call and executes all test cases (targets)"/>
     
     <!-- runs user-related tests -->
@@ -255,4 +255,119 @@
             </steps>
         </webtest>
     </target>
+    
+    
+    
+    
+    
+    
+    <!--SolicitudInternado-START-->
+    <!-- runs solicitudInternado-related tests -->
+    <target name="SolicitudInternadoTests"
+            depends="SearchSolicitudInternadoes,EditSolicitudInternado,SaveSolicitudInternado,AddSolicitudInternado,DeleteSolicitudInternado"
+            description="Call and executes all solicitudInternado test cases (targets)">
+        <echo>Successfully ran all SolicitudInternado UI tests!</echo>
+    </target>
+
+    <!-- Verify the solicitudInternadoes list screen displays without errors -->
+    <target name="SearchSolicitudInternadoes" description="Tests search for and displaying all solicitudInternadoes">
+        <webtest name="searchSolicitudInternadoes">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View SolicitudInternado link" url="/solicitudInternadoes"/>
+                <verifytitle description="we should see the solicitudInternadoList title"
+                    text=".*${solicitudInternadoList.title}.*" regex="true"/>
+                <setinputfield description="set search term" name="q" value="*"/>
+                <clickbutton label="${button.search}" description="Click Search"/>
+                <verifytitle description="we should see the solicitudInternadoList title"
+                    text=".*${solicitudInternadoList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit solicitudInternado screen displays without errors -->
+    <target name="EditSolicitudInternado" description="Tests editing an existing SolicitudInternado's information">
+        <webtest name="editSolicitudInternado">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View SolicitudInternado List" url="/solicitudInternadoes"/>
+                <clicklink label="-1" description="Click edit link"/>
+                <verifytitle description="we should see the solicitudInternadoDetail title"
+                    text=".*${solicitudInternadoDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a solicitudInternado and then save -->
+    <target name="SaveSolicitudInternado" description="Tests editing and saving a solicitudInternado">
+        <webtest name="saveSolicitudInternado">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit SolicitudInternado link" url="/solicitudInternadoform?id=-1"/>
+                <verifytitle description="we should see the solicitudInternadoDetail title"
+                    text=".*${solicitudInternadoDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set apMaterno" name="apMaterno" value="XfNjOuWhHcCiOoWtOfZuDtQiTfEoQtCxJpKzJsQlRoAbRaOuSp"/>
+                <setInputField description="set apPaterno" name="apPaterno" value="WwXkQlHuKrErJjNnLeGeOzXxGhUdWcMeHmDlEnBkOuKiBqMlPs"/>
+                <setInputField description="set matricula" name="matricula" value="BuMoJlC"/>
+                <setInputField description="set nombre" name="nombre" value="QwPzLdTbWmCfZxSgAbWmPnBnKcXuBpOyYyQoHdJuKjYpKpEkDo"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${solicitudInternadoDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${solicitudInternado.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new SolicitudInternado -->
+    <target name="AddSolicitudInternado" description="Adds a new SolicitudInternado">
+        <webtest name="addSolicitudInternado">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/solicitudInternadoform"/>
+                <verifytitle description="we should see the solicitudInternadoDetail title"
+                    text=".*${solicitudInternadoDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set apMaterno" name="apMaterno" value="EqZeVwOsCyGsPxIlFfVpQgIlHuHiTtTqFfVyGrHsZpJcVzCaCy"/>
+                <setInputField description="set apPaterno" name="apPaterno" value="LvKwVfIyYlGjDyJrTcQzPkGvHgTbIgSbDoMsOeBiQjVrFhDtRr"/>
+                <setInputField description="set matricula" name="matricula" value="DbWnXoW"/>
+                <setInputField description="set nombre" name="nombre" value="YrXaZsBpUxJcYwZcZkOqWhByYyJqSvIgOmIiPjHcOdObVaNzDu"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="SolicitudInternado List appears if save successful"
+                    text=".*${solicitudInternadoList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${solicitudInternado.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing solicitudInternado -->
+    <target name="DeleteSolicitudInternado" description="Deletes existing SolicitudInternado">
+        <webtest name="deleteSolicitudInternado">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit SolicitudInternado link" url="/solicitudInternadoform?id=-1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display SolicitudInternado List" text=".*${solicitudInternadoList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${solicitudInternado.deleted}"/>
+            </steps>
+        </webtest>
+    </target>    <!--SolicitudInternado-END-->
 </project>
+
+
+
+
+
+
+

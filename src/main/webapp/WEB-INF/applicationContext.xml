@@ -14,6 +14,28 @@
     <!-- Add new DAOs here -->
     <!--<bean id="plazaDao" class="mx.um.edu.medicina.camposClinicos.dao.hibernate.PlazaDaoHibernate"/>-->
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <!--SolicitudInternadoManager-START-->
+    <bean id="solicitudInternadoManager" class="mx.um.edu.medicina.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="mx.um.edu.medicina.dao.hibernate.GenericDaoHibernate">
+                <constructor-arg value="mx.um.edu.medicina.model.SolicitudInternado"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!--SolicitudInternadoManager-END-->
+
     <!-- Add new Managers here -->
     <!--    <bean id="plazaManager" class="mx.um.edu.medicina.camposClinicos.service.impl.PlazaManagerImpl">
         <constructor-arg ref="plazaDao"/>

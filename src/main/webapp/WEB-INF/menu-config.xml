@@ -14,5 +14,21 @@
         </Menu>
         <Menu name="PlazaMenu" title="plazaList.title" page="/plazas"/>
         <Menu name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
+        
+        
+        
+        
+        
+        
+        <!--SolicitudInternado-START-->
+        <Menu name="SolicitudInternadoMenu" title="solicitudInternadoList.title" page="/solicitudInternadoes"/>
+        <!--SolicitudInternado-END-->
     </Menus>
+
+
+
+
+
+
+
 </MenuConfig>

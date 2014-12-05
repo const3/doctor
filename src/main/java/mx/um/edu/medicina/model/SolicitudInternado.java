@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.um.edu.medicina.camposClinicos.model;
+package mx.um.edu.medicina.model;
 
 import java.util.Objects;
 import javax.persistence.Column;
@@ -11,10 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.persistence.Version;
-import mx.um.edu.medicina.model.BaseObject;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 
@@ -32,7 +30,14 @@ public class SolicitudInternado extends BaseObject {
     private String apMaterno;
     private String matricula;
     private Boolean foraneo;
-    private Plaza plaza;
+//    private Plaza plaza;
+    private String celular;
+    private String telefono;
+    private String correo;
+    private String direccion;
+    private String pruebas;
+    private String pruebas2;
+    private String pruebas3;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,9 +80,48 @@ public class SolicitudInternado extends BaseObject {
         return foraneo;
     }
 
-    @OneToOne
-    public Plaza getPlaza() {
-        return plaza;
+    @Field
+    public Boolean getForaneo() {
+        return foraneo;
+    }
+
+    @Field
+    public String getPruebas() {
+        return pruebas;
+    }
+
+    @Field
+    public String getPruebas2() {
+        return pruebas2;
+    }
+
+    @Field
+    public String getPruebas3() {
+        return pruebas3;
+    }
+
+//    @OneToOne
+//    public Plaza getPlaza() {
+//        return plaza;
+//    }
+    @Field
+    public String getCelular() {
+        return celular;
+    }
+
+    @Field
+    public String getTelefono() {
+        return telefono;
+    }
+
+    @Field
+    public String getCorreo() {
+        return correo;
+    }
+
+    @Field
+    public String getDireccion() {
+        return direccion;
     }
 
     /**
@@ -89,6 +133,10 @@ public class SolicitudInternado extends BaseObject {
     public String getFullName() {
         return nombre + ' ' + apPaterno + ' ' + apMaterno;
 
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public void setId(Long id) {
@@ -119,8 +167,31 @@ public class SolicitudInternado extends BaseObject {
         this.foraneo = foraneo;
     }
 
-    public void setPlaza(Plaza plaza) {
-        this.plaza = plaza;
+//    public void setPlaza(Plaza plaza) {
+//        this.plaza = plaza;
+//    }
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setPruebas(String pruebas) {
+        this.pruebas = pruebas;
+    }
+
+    public void setPruebas2(String pruebas2) {
+        this.pruebas2 = pruebas2;
+    }
+
+    public void setPruebas3(String pruebas2) {
+        this.pruebas2 = pruebas2;
     }
 
     @Override
@@ -155,8 +226,10 @@ public class SolicitudInternado extends BaseObject {
 
     @Override
     public String toString() {
-        return "SolicitudInternado{" + "id=" + id + ", nombre=" + nombre + ", apPaterno=" + apPaterno
-                + ", apMaterno=" + apMaterno + ", matricula=" + matricula + ", foraneo=" + foraneo + '}';
+        return "SolicitudInternado{" + "id=" + id + ", version=" + version + ", nombre=" + nombre + ", apPaterno=" + apPaterno
+                + ", apMaterno=" + apMaterno + ", matricula=" + matricula + ", foraneo=" + foraneo + ", celular=" + celular
+                + ", telefono=" + telefono + ", correo=" + correo + ", direccion=" + direccion + ", pruebas=" + pruebas
+                + ", pruebas2=" + pruebas2 + ", pruebas3=" + pruebas3 + '}';
     }
 
 }

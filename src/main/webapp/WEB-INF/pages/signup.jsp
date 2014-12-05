@@ -68,7 +68,7 @@
             <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
             </spring:bind>
                 <appfuse:label styleClass="control-label" key="user.email"/>
-                <form:input cssClass="form-control" path="email" id="email"/>
+                <form:input  placeholder="hola" cssClass="form-control" path="email" id="email" />
                 <form:errors path="email" cssClass="help-block"/>
             </div>
             <div class="col-sm-6 form-group">

@@ -13,6 +13,15 @@
             <menu:displayMenu name="AdminMenu"/>
             <menu:displayMenu name="PlazaMenu"/>
             <menu:displayMenu name="Logout"/>
-        </ul>
+            
+    
+    
+    
+    
+    
+    <!--SolicitudInternado-START-->
+    <menu:displayMenu name="SolicitudInternadoMenu"/>
+    <!--SolicitudInternado-END-->
+</ul>
     </div>
 </menu:useMenuDisplayer>

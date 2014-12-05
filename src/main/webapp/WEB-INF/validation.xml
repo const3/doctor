@@ -58,5 +58,27 @@
                 <arg key="plaza.hubicacion"/>
             </field>
         </form>
+        
+        
+        
+        
+        
+        
+        <!--SolicitudInternado-START-->
+        <form name="solicitudInternado">
+            <field property="apMaterno" depends="required">
+                <arg key="solicitudInternado.apMaterno"/>
+            </field>
+            <field property="apPaterno" depends="required">
+                <arg key="solicitudInternado.apPaterno"/>
+            </field>
+            <field property="matricula" depends="required">
+                <arg key="solicitudInternado.matricula"/>
+            </field>
+            <field property="nombre" depends="required">
+                <arg key="solicitudInternado.nombre"/>
+            </field>
+        </form>
+        <!--SolicitudInternado-END-->
     </formset>
 </form-validation>

@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="home.title"/></title>
     <meta name="menu" content="Home"/>
+   
 </head>
 <body class="home">
 
@@ -15,6 +16,7 @@
     </li>
     <li>
         <a href="<c:url value='/fileupload'/>"><fmt:message key="menu.selectFile"/></a>
+        <i class="fa fa-camera-retro"></i> 
     </li>
 </ul>
 </body>

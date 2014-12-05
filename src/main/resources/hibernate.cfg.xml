@@ -1,14 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <!-- NOTE: If you're working offline, you might have to change the DOCTYPE to the following:
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">-->
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-
 <hibernate-configuration>
-    <session-factory>
-        <mapping class="mx.um.edu.medicina.model.User"/>
-        <mapping class="mx.um.edu.medicina.model.Role"/>
-        <mapping class="mx.um.edu.medicina.camposClinicos.model.Plaza"/>
-        <mapping class="mx.um.edu.medicina.camposClinicos.model.SolicitudInternado"/>
-    </session-factory>
+  <session-factory>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="mx.um.edu.medicina.model.User"/>
+    <mapping class="mx.um.edu.medicina.model.Role"/>
+    <mapping class="mx.um.edu.medicina.model.Prueba"/>
+    <mapping class="mx.um.edu.medicina.camposClinicos.model.Plaza"/>
+    <mapping class="mx.um.edu.medicina.model.Forecast"/>
+    <!--<mapping class="mx.um.edu.medicina.camposClinicos.model.SolicitudInternado"/>-->
+    <mapping class="mx.um.edu.medicina.model.SolicitudInternado"/>
+  </session-factory>
 </hibernate-configuration>
